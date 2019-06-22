@@ -2,8 +2,8 @@
 
 @section('content')
     @include('users.partials.header', [
-        'title' => __('Hello') . ' '. auth()->user()->name,
-        'description' => __('Perfil page'),
+        'title' => __('Olá') . ' '. auth()->user()->name,
+        'description' => __('Complete seu perfil'),
         'class' => 'col-lg-7'
     ])
 
@@ -70,16 +70,21 @@
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <h3 class="col-12 mb-0">
-                                Editar Perfil
+                                Complete seu Perfil
                             </h3>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
+                        <form method="post" action="{{ route('profile.update') }}"
+                              autocomplete="off" enctype="multipart/form-data">
                             @csrf
                             @method('put')
 
-                            <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
+                            <h6 class="heading-small text-muted mb-4">Preencha de acordo</h6>
+                            <h6 class="heading-small">Os campos com
+                                <sup> <i class="fa fa-asterisk" style="color:red; font-size: 7px;"></i> </sup>
+                                são obrigatórios
+                            </h6>
 
                             @if (session('status'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -94,20 +99,24 @@
                                 <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-name">
                                         Nome:
+                                        <sup> <i class="fa fa-asterisk" style="color:red; font-size: 7px;"></i> </sup>
                                     </label>
-                                    <input type="text" name="nome" id="input-name"
+                                    <input type="text" name="name" id="input-name"
                                            class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}"
                                            placeholder="Nome"
                                            value="{{ old('name', auth()->user()->name) }}" required autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('nome') }}</strong>
+                                            <strong>{{ $errors->first('name') }}</strong>
                                         </span>
                                     @endif
                                 </div>
                                 <div class="form-group{{ $errors->has('cpf') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">CPF</label>
+                                    <label class="form-control-label" for="input-email">
+                                        CPF
+                                        <sup> <i class="fa fa-asterisk" style="color:red; font-size: 7px;"></i> </sup>
+                                    </label>
                                     <input type="number" name="cpf" id="cpf"
                                            class="form-control form-control-alternative{{ $errors->has('cpf') ? ' is-invalid' : '' }}"
                                            placeholder="CPF"
@@ -121,7 +130,10 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">email</label>
+                                    <label class="form-control-label" for="input-email">
+                                        email
+                                        <sup> <i class="fa fa-asterisk" style="color:red; font-size: 7px;"></i> </sup>
+                                    </label>
                                     <input type="email" name="email" id="input-email"
                                            class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                            placeholder="email"
@@ -135,7 +147,10 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('cep') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">CEP</label>
+                                    <label class="form-control-label" for="input-email">
+                                        CEP
+                                        <sup> <i class="fa fa-asterisk" style="color:red; font-size: 7px;"></i> </sup>
+                                    </label>
                                     <input type="number" name="cep" id="cep"
                                            class="form-control form-control-alternative{{ $errors->has('cep') ? ' is-invalid' : '' }}"
                                            placeholder="CEP"
@@ -149,10 +164,13 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('cidade') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">Cidade</label>
+                                    <label class="form-control-label" for="input-email">
+                                        Cidade
+                                        <sup> <i class="fa fa-asterisk" style="color:red; font-size: 7px;"></i> </sup>
+                                    </label>
                                     <input type="text" name="cidade" id="cidade"
                                            class="form-control form-control-alternative{{ $errors->has('cidade') ? ' is-invalid' : '' }}"
-                                           placeholder="CEP"
+                                           placeholder="Cidade"
                                            value="{{ old('cidade', auth()->user()->cidade) }}" required>
 
                                     @if ($errors->has('cidade'))
@@ -163,7 +181,10 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('uf') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">Estado</label>
+                                    <label class="form-control-label" for="input-email">
+                                        Estado
+                                        <sup> <i class="fa fa-asterisk" style="color:red; font-size: 7px;"></i> </sup>
+                                    </label>
                                     <input type="text" name="uf" id="uf"
                                            class="form-control form-control-alternative{{ $errors->has('uf') ? ' is-invalid' : '' }}"
                                            placeholder="UF"
@@ -177,7 +198,10 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('numero') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">Numero</label>
+                                    <label class="form-control-label" for="input-email">
+                                        Numero
+                                        <sup> <i class="fa fa-asterisk" style="color:red; font-size: 7px;"></i> </sup>
+                                    </label>
                                     <input type="number" name="numero" id="numero"
                                            class="form-control form-control-alternative{{ $errors->has('numero') ? ' is-invalid' : '' }}"
                                            placeholder="Numero"
@@ -191,7 +215,10 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('rua') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">Rua</label>
+                                    <label class="form-control-label" for="input-email">
+                                        Rua
+                                        <sup> <i class="fa fa-asterisk" style="color:red; font-size: 7px;"></i> </sup>
+                                    </label>
                                     <input type="text" name="rua" id="rua"
                                            class="form-control form-control-alternative{{ $errors->has('numero') ? ' is-invalid' : '' }}"
                                            placeholder="Numero"
@@ -203,7 +230,6 @@
                                         </span>
                                     @endif
                                 </div>
-
 
 
                                 <div class="text-center">

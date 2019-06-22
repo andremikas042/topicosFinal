@@ -88,57 +88,75 @@
                         <i class="ni ni-tv-2 text-primary"></i> Home
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button"
-                       aria-expanded="true" aria-controls="navbar-examples">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">
+                @if(auth()->user()->tipo == 'on')
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button"
+                           aria-expanded="true" aria-controls="navbar-examples">
+                            <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                            <span class="nav-link-text" style="color: #f4645f;">
                             Banco
                         </span>
-                    </a>
+                        </a>
 
-                    <div class="collapse show" id="navbar-examples">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fa fa-plus"></i>
-                                    Criar nova Conta
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
+                        <div class="collapse show" id="navbar-examples">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('bank.create')}}">
+                                        <i class="fa fa-plus"></i>
+                                        Criar nova Conta
+                                    </a>
+                                    <a class="nav-link" href="{{route('bank.index')}}">
+                                        <i class="fa fa-university"></i>
+                                        Gerenciar Contas
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
 
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button"
+                           aria-expanded="true" aria-controls="navbar-examples">
+                            <i class="fa fa-users"></i>
+                            <span class="nav-link-text">Pessoal</span>
+                        </a>
 
-                <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button"
-                       aria-expanded="true" aria-controls="navbar-examples">
-                        <i class="fa fa-users"></i>
-                        <span class="nav-link-text">Pessoal</span>
-                    </a>
-
-                    <div class="collapse show" id="navbar-examples">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}">
-                                    <i class="fa fa-user"></i>
-                                    {{ __('User profile') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">
-                                    <i class="fa fa-users-cog"></i>
-                                    {{ __('User Management') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                        <div class="collapse show" id="navbar-examples">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('profile.edit') }}">
+                                        <i class="fa fa-user"></i>
+                                        {{ __('User profile') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('user.index') }}">
+                                        <i class="fa fa-users-cog"></i>
+                                        {{ __('User Management') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('profile.edit') }}">
+                            <i class="fa fa-user"></i>
+                            Meu perfil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('bank.index')}}">
+                            <i class="fa fa-piggy-bank"></i>
+                            Minhas Contas
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

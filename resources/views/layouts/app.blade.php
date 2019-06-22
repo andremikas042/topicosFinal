@@ -9,14 +9,15 @@
 
     <title>{{ config('app.name', 'Tópicos Avançados') }}</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="{{ asset('/js/cep.js') }}"></script>
 
-    <!-- Favicon -->
-    <link href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
-    rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
-    rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+    {{--<!-- Favicon -->--}}
+    {{--<link href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">--}}
+    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"--}}
+    {{--rel="stylesheet">--}}
+    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"--}}
+    {{--rel="stylesheet">--}}
+    {{--<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">--}}
 
     <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->

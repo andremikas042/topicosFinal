@@ -14,10 +14,12 @@ class CreateContasTable extends Migration
     public function up()
     {
         Schema::create('contas', function (Blueprint $table) {
-            $table->bigIncrements('numero');
-            $table->string('saldo');
-            $table->integer("id_users")->unsigned();
-            $table->foreign("id_users")->references("cpf")->on("users");
+            $table->increments('id');
+            $table->integer('numero');
+            $table->string('saldo')->nullable();
+
+            $table->integer('id_users')->unsigned();
+            $table->foreign('id_users')->references('id')->on('users');
             $table->timestamps();
         });
     }

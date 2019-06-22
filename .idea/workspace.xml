@@ -79,13 +79,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="9506" />
+          <entry key="php" value="9512" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Blade" value="5150" />
-          <entry key="PHP" value="4356" />
+          <entry key="PHP" value="4362" />
         </counts>
       </usages-collector>
     </session>
@@ -96,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BankController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="328">
-              <caret line="111" column="32" selection-start-line="111" selection-start-column="32" selection-end-line="111" selection-end-column="32" />
+              <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
               <folding>
                 <element signature="e#40#54#0#PHP" expanded="true" />
               </folding>
@@ -514,12 +514,12 @@
       <workItem from="1560807834215" duration="6262000" />
       <workItem from="1560876678421" duration="18401000" />
       <workItem from="1561049827572" duration="9277000" />
-      <workItem from="1561124359059" duration="10729000" />
+      <workItem from="1561124359059" duration="11340000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78159000" />
+    <option name="totallyTimeSpent" value="78770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="713" extended-state="6" />
@@ -880,7 +880,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BankController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
-          <caret line="111" column="32" selection-start-line="111" selection-start-column="32" selection-end-line="111" selection-end-column="32" />
+          <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
           <folding>
             <element signature="e#40#54#0#PHP" expanded="true" />
           </folding>

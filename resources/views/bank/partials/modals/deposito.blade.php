@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content border border-white">
             <div class="modal-header bg-gradient-success">
-                <h3 class="modal-title text-white" id="exampleModalLabel">Fazer Depósito</h3>
+                <h3 class="modal-title text-white" id="exampleModalLabel">Fazer Depósito em: {{$conta->id}}</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,10 +14,12 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-lg">
-                                <form action="{{route('transacao.deposito', $conta->saldo)}}">
+                                {{--<form action="{{route('transacao.deposito', $conta->id, $conta->saldo)}}">--}}
+                                <form action="{{route('transacao.deposito', $conta->id, $conta->saldo)}}">
                                     <div class="form-group">
                                         <label for="input-saldo">Insira o valor em R$</label>
-                                        <input type="text" name="valor" class="form-control" id="input-saldo" placeholder="R$">
+                                        <input type="text" name="saldoValor" class="form-control" id="input-saldo"
+                                               placeholder="R$">
                                         <small>Exemplo: 5,00</small>
                                     </div>
                                     <div class="form-group col-5">

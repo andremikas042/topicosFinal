@@ -47,8 +47,7 @@ class BankController extends Controller
         return view('bank.edit', compact('contas'));
     }
 
-    public
-    function update(Request $request, conta $conta)
+    public function update(Request $request, conta $conta)
     {
         $data = $request->all();
         $saldoAtual = 0;
@@ -95,38 +94,95 @@ class BankController extends Controller
         return view('bank.index', compact('contas', 'title'));
     }
 
-    public function deposito(conta $conta, BankRepository $bankRepository, Request $request, $saldo)
+    public function deposito(conta $conta, Request $request, $id)
     {
-        $valor = $request->valor;
-        $saldoInicial = $bankRepository->find($saldo);
+        $contas = $conta->all();
+        $valor = $request->saldoValor;
         if ($valor < 0) {
             dd('valor negativo!!!' . $valor);
             return redirect()
                 ->action("BankController@index")
                 ->with("erro", "Não é possível depositar um valor negativo");
         } else if ($valor > 0) {
-            $saldoAtual = $saldoInicial + $valor;
-            $saldo = (string)$saldoAtual;
-            $data['saldo'] = $saldo;
-            $animal = $bankRepository->updateAccont($data, $saldo);
-            $data->update());
+            $contas = $conta->find($id);
+            $saldo = $contas->saldo;
+            $saldoAtual = $saldo + $valor;
+            $saldonovo = (string)$saldoAtual;
+            $contas->update([
+                'id' => $request['id'],
+                'numero' => $contas['numero'],
+                'saldo' => $saldonovo,
+                'id_users' => $contas['id_users'],
+            ]);
             return redirect()
                 ->action("BankController@index")
                 ->with("sucesso", "Depósito efetuado com sucesso");
         } else {
-            return $php_errormsg;
+            return redirect()->action("BankController@index");
         }
 
     }
 
-    public function saque()
+    public function saque(conta $conta, Request $request, $id)
     {
-        //
+        $contas = $conta->all();
+        $valor = $request->valor;
+//        dd($valor);
+        if ($valor < 0) {
+            dd('valor negativo!!!' . $valor);
+            return redirect()
+                ->action("BankController@index")
+                ->with("erro", "Não é possível sacar um valor negativo");
+        } else if ($valor > 0) {
+            $contas = $conta->find($id);
+            $saldo = $contas->saldo;
+            $saldoAtual = $saldo - $valor;
+            $saldonovo = (string)$saldoAtual;
+//            dd($saldonovo);
+            $contas->update([
+                'id' => $request['id'],
+                'numero' => $contas['numero'],
+                'saldo' => $saldonovo,
+                'id_users' => $contas['id_users'],
+            ]);
+            return redirect()
+                ->action("BankController@index")
+                ->with("sucesso", "Depósito efetuado com sucesso");
+        } else {
+            return redirect()->action("BankController@index");
+        }
     }
 
-    public function transferenca()
+    public function transferencia(conta $conta, User $user, Request $request, $id)
     {
-        //
+        dd($id);
+        $usuarios = $user->all();
+        $contas = $conta->all();
+        $valor = $request->valor;
+        $idUser = $request->idUser;
+        if ($idUser != auth()->id()) {
+            return redirect()
+                ->action("BankController@index")
+                ->with("erro", "Não é possível transferir um valor pra si mesmo! escolha outra conta!");
+        } else if ($valor > 0) {
+            $contas = $conta->find($id);
+            $usuarios = $user->find($id);
+            $saldo = $contas->saldo;
+            $saldoAtual = $saldo - $valor;
+            $saldonovo = (string)$saldoAtual;
+//            dd($saldonovo);
+            $contas->update([
+                'id' => $request['id'],
+                'numero' => $contas['numero'],
+                'saldo' => $saldonovo,
+                'id_users' => $contas['id_users'],
+            ]);
+            return redirect()
+                ->action("BankController@index")
+                ->with("sucesso", "Depósito efetuado com sucesso");
+        } else {
+            return redirect()->action("BankController@index");
+        }
     }
 
 }

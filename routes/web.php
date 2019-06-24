@@ -38,7 +38,7 @@ Route::group(['prefix' => 'bank', 'middleware' => 'auth'], function () {
 });
 
 Route::group(['prefix' => 'transacao', 'middleware' => 'auth'], function () {
-    Route::get('/deposito/{saldo}', 'BankController@deposito')->name('transacao.deposito');
+    Route::get('/deposito/{id}', 'BankController@deposito')->name('transacao.deposito');
     Route::get('/saque/{id}', 'BankController@saque')->name('transacao.saque');
     Route::get('/transferenca/{id}', 'BankController@transferencia')->name('transacao.transferencia');
 });

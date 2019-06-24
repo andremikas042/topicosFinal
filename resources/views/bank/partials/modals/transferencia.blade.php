@@ -17,7 +17,7 @@
                                 <form action="{{route('transacao.transferencia', $conta->numero)}}">
                                     <div class="form-group">
                                         <label for="input-saldo">Insira o valor em R$</label>
-                                        <input type="text" class="form-control" id="input-saldo" placeholder="R$">
+                                        <input type="text" name="valor" class="form-control" id="input-saldo" placeholder="R$">
                                         <small>Exemplo: 5,00</small>
                                         <small class="text-warning">
                                             Atenção! Insira os dados corretamente!
@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="select-user">Selecione o Usuário</label>
-                                        <select id="select-user" class="form-control">
+                                        <select name="idUser" id="select-user" class="form-control">
                                             <option selected>Selecione</option>
                                             @foreach($users as $user)
                                                 <option value="{{$user->id}}">

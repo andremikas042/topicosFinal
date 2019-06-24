@@ -9,6 +9,11 @@
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
+                            @if(isset($php_errormsg))
+                                <div class="alert-danger">
+                                    <h3>Erro!</h3>
+                                </div>
+                            @endif
                             <div class="col-3 float-left">
                                 <h3 class="mb-0">Gerenciamento de Contas</h3>
                             </div>
@@ -51,10 +56,12 @@
                     </div>
 
                     @if(auth()->user()->tipo == 'on')
-                        @include('users.partials.auth')
-                    @else
-                        @include('users.partials.guest')
-                    @endif
+{{--                        @if(auth()->user()->id != $user->id)--}}
+                            @include('users.partials.auth')
+                        @else
+                            @include('users.partials.guest')
+                        @endif
+                    {{--@endif--}}
 
                     <div class="card-footer py-4">
                         <nav class="d-flex justify-content-end" aria-label="...">

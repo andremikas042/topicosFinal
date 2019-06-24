@@ -14,10 +14,10 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-lg">
-                                <form action="{{route('transacao.saque', $conta->numero)}}">
+                                <form action="{{route('transacao.saque', $conta->id)}}">
                                     <div class="form-group">
                                         <label for="input-saldo">Insira o valor em R$</label>
-                                        <input type="text" class="form-control" id="input-saldo" placeholder="R$">
+                                        <input type="text" name="valor" class="form-control" id="input-saldo" placeholder="R$">
                                         <small>Exemplo: 5,00</small>
                                     </div>
                                     <div class="form-group col-5">

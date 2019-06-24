@@ -27,6 +27,9 @@ class CreateUsersTable extends Migration
             $table->string('estado');
             $table->string('numero');
             $table->string('rua');
+
+//            $table->integer('id_contas')->unsigned();
+//            $table->foreign('id_contas')->references('id')->on('contas');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -11,14 +11,9 @@
         </tr>
         </thead>
         <tbody>
-
-        @foreach($users as $user)
-            <h2 class="text-hide">{{$user->id}}</h2>
-        @endforeach
-
-        @if(auth()->user()->id == $user->id)
-            @foreach($contas as $conta)
-                <tr>
+        @foreach($contas as $conta)
+            <tr>
+                @if(auth()->user()->id == $conta->id)
                     <td> [{{$conta->id_users}}]</td>
                     <td> {{$conta->id}} </td>
                     <td> {{$conta->numero}} </td>
@@ -35,13 +30,13 @@
                             <i class="fa fa-expand-arrows-alt"></i>
                         </a>
                     </td>
-                </tr>
-            @endforeach
-        @endif
+            </tr>
+            @endif
 
-        @include('bank.partials.modals.deposito')
-        @include('bank.partials.modals.saque')
-        @include('bank.partials.modals.transferencia')
+            @include('bank.partials.modals.deposito')
+            @include('bank.partials.modals.saque')
+            @include('bank.partials.modals.transferencia')
+        @endforeach
         </tbody>
     </table>
 </div>

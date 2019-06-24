@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-lg">
                                 {{--<form action="{{route('transacao.deposito', $conta->id, $conta->saldo)}}">--}}
-                                <form action="{{route('transacao.deposito', $conta->id, $conta->saldo)}}">
+                                <form action="{{route('transacao.deposito', $conta->id  )}}">
                                     <div class="form-group">
                                         <label for="input-saldo">Insira o valor em R$</label>
                                         <input type="text" name="saldoValor" class="form-control" id="input-saldo"

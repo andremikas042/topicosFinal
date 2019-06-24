@@ -17,7 +17,7 @@ class BankController extends Controller
         $title = 'Bank';
         $users = $user->all();
         $contas = conta::paginate($this->paginate);
-        return view('bank.index', ['contas' => $contas], compact('title', 'users'));
+        return view('bank.index', ['contas' => $contas], compact('title', 'users', 'contas'));
     }
 
     public function create(conta $conta, User $user)

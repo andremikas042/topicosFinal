@@ -1,0 +1,6 @@
+PROF! Eh pra estar funcionando o saque e saldo, crud completo de usuário com níveis de acesso, conta no qual so o gerente pode criar. O saldo e saque eh o cliente que faz. 
+
+O projeto completo está no GIT: https://github.com/ProjetoLaravelFag/topicosFinal/commit/3aa851fc3219831588c0962ec1280a7995d95e25
+no último commit
+
+Dupla Lucas Alberto Matoso & Andre Mikas
